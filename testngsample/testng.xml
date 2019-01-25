@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="4" name="TestNG POC" parallel="tests">
+
+	<listeners>
+		<!-- Don't change this listener -->
+		 <listener class-name="io.perfecto.testng.TestLevelDriverInitialization" />
+		<!-- <listener class-name="io.perfecto.testng.GroupLevelDriverInitialization" /> -->
+	</listeners>
+
+	<test name="HNB Issue" parallel="methods" enabled="true">
+		<parameter name="platformName" value="Windows"></parameter>
+		<parameter name="platformVersion" value="10"></parameter>
+		<parameter name="browserName" value="Chrome"></parameter>
+		<parameter name="browserVersion" value="latest"></parameter>
+		<parameter name="location" value="US East"></parameter>
+		<!-- <parameter name="seleniumVersion" value="3.8.0"></parameter> -->
+		
+		<groups>
+			<run>
+				<include name="Failed_Test" />
+			</run>
+		</groups>
+		
+		<packages>
+			<package name="io.perfecto.tests"></package>
+		</packages>
+	</test>
+</suite> <!-- TestNG POC -->
